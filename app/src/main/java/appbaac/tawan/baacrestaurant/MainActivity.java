@@ -2,6 +2,7 @@ package appbaac.tawan.baacrestaurant;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -95,6 +96,12 @@ public class MainActivity extends AppCompatActivity {
             //ถ้าเจอ password ตรง user?
             if(passwordString.equals(strMyResult[2])) {
                 Toast.makeText(MainActivity.this, "Welcome" + strMyResult[3], Toast.LENGTH_LONG).show();
+
+                //Intent to OrderActivity 211058
+                Intent objIntent = new Intent(MainActivity.this, OrderActivity.class);
+                objIntent.putExtra("Name", strMyResult[3]);
+                startActivity(objIntent);
+                finish();
 
             }else{
                 errorDialog("Password false", "Please Try again Password False");
