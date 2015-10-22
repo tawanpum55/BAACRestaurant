@@ -60,7 +60,7 @@ public class MyAdapter extends BaseAdapter {    //2. add extend BaseAdapter then
         priceTextView.setText(priceStrings[i]);
 
         //For Icon
-        ImageView iconImageView = (ImageView) objView1.findViewById(R.id.imageView); //alt+enter cast to show(ImageView auto)
+        ImageView iconImageView = (ImageView) objView1.findViewById(R.id.imvicon); //alt+enter cast to show(ImageView auto)
         Picasso.with(objContext).
                 load(sourceStrings[i]).
                 resize(120, 120).

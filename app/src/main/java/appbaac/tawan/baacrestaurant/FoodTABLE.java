@@ -41,39 +41,40 @@ public class FoodTABLE {   //class ดูแล table ชื่อ food
 
         Log.d("baac", "getCount == " + Integer.toString(objCursor.getCount()));
 
+        if (objCursor != null) {
 
+            objCursor.moveToFirst();
+            strResult = new String[objCursor.getCount()];
 
-            if (objCursor != null) {
+            for (int i = 0; i < objCursor.getCount(); i++) {
 
-                objCursor.moveToFirst();
-                strResult = new String[objCursor.getCount()];
+                switch (intType) {
+                    case 0:
+                        strResult[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_FOOD));
+                        break;
+                    case 1:
+                        strResult[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_SOURCE));
+                        break;
+                    case 2:
+                        strResult[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_PRICE));
+                        break;
+                    default:
+                        break;
+                }   // switch
 
-                for (int i = 0; i < objCursor.getCount(); i++) {
-                    switch (intType) {
-                        case 0:
-                            strResult[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_FOOD));
-                            break;
-                        case 1:
-                            strResult[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_SOURCE));
-                            break;
-                        case 2:
-                            strResult[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_PRICE));
-                            break;
-                        default:
-//                            strResult[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_FOOD));
-                            break;
-                    }   //switch
+                objCursor.moveToNext();
 
-                    objCursor.moveToNext();
+            }   //for
 
-                }   //for
-
-            }  //if
+        }   // if
 
         objCursor.close();
         return strResult;
+    }//Read all
 
-    }   //Read all
+
+
+
 
     public long addNewFood(String strFood, String strSource, String strPrice) {
 
