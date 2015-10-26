@@ -12,7 +12,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" >   //ให้ล๊อคจอเป็นแนวตั้งเสมอ
+            android:screenOrientation="portrait" >
+   //ให้ล๊อคจอเป็นแนวตั้งเสมอ
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,6 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".OrderActivity" >
+        </activity>
+        <activity android:name=".Main4Activity" >
+        </activity>
+        <activity android:name=".SplashActivity" >
         </activity>
     </application>
 
